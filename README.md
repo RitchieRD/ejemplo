@@ -1,0 +1,2 @@
+# ejemplo
+Curso Inertia JS

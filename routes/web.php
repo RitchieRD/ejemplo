@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
+use App\Http\Controllers\UsuarioController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,10 +16,12 @@ use Inertia\Inertia;
 |
 */
 
+Route::get('/', function () {
+    return view('welcome');
+});
+
 // Route::get('/', function () {
-//     return view('welcome');
+//     return Inertia::render('App');
 // });
 
-Route::get('/', function () {
-    return Inertia::render('App');
-});
+Route::get('/login', [UsuarioController::class, 'login']);

@@ -5,6 +5,11 @@ import { createInertiaApp, InertiaLink } from "@inertiajs/inertia-vue";
 import axios from "axios";
 import { resolvePageComponent } from "laravel-vite-plugin/inertia-helpers";
 
+// Libreria Bootstrap 5 -------------------
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap";
+// ----------------------------------------
+
 Vue.prototype.$http = axios;
 
 createInertiaApp({

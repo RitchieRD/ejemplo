@@ -10,7 +10,13 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap";
 // ----------------------------------------
 
+// Libreria SWEET ALERT 2 -------------------
+import VueSweetalert2 from "vue-sweetalert2";
+import "sweetalert2/dist/sweetalert2.min.css";
+// ----------------------------------------
+
 Vue.prototype.$http = axios;
+Vue.use(VueSweetalert2);
 
 createInertiaApp({
     resolve: (name) =>

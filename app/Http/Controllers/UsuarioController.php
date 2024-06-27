@@ -34,6 +34,7 @@ class UsuarioController extends Controller
 
     public function ingresar(Request $request)
     {
+
         $usuario = $request->usuario;
         $clave = $request->clave;
 
@@ -52,5 +53,10 @@ class UsuarioController extends Controller
         } else {
             return 'USUARIO NO ENCONTRADO';
         }
+    }
+
+    public function tables()
+    {
+        return Inertia::render('Tables');
     }
 }

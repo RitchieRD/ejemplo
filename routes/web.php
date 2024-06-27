@@ -25,3 +25,4 @@ Route::get('/', function () {
 // });
 
 Route::get('/login', [UsuarioController::class, 'login']);
+Route::get('/tables', [UsuarioController::class, 'tables']);

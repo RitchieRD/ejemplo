@@ -4,6 +4,13 @@ import Vue from "vue";
 import { createInertiaApp, InertiaLink } from "@inertiajs/inertia-vue";
 import axios from "axios";
 import { resolvePageComponent } from "laravel-vite-plugin/inertia-helpers";
+import PrimeVue from "primevue/config";
+
+// Libreria PrimeVUE 2 -------------------
+import "primevue/resources/themes/saga-blue/theme.css";
+import "primevue/resources/primevue.min.css";
+import "primeicons/primeicons.css";
+// ----------------------------------------
 
 // Libreria Bootstrap 5 -------------------
 import "bootstrap/dist/css/bootstrap.min.css";

@@ -17,4 +17,4 @@ use App\Http\Controllers\UsuarioController;
 */
 
 Route::POST('/login/registrar', [UsuarioController::class, 'registrar']);
-Route::POST('/login/ingresar', [UsuarioController::class, 'ingresar']);
+Route::GET('/login/ingresar', [UsuarioController::class, 'ingresar']);

@@ -88,23 +88,24 @@ export default {
 		ingresar() {
 			let self = this;
 
-			let data = new FormData();
-			data.append("usuario", this.usuario);
-			data.append("clave", this.clave);
+			// let data = new FormData();
+			// data.append("usuario", this.usuario);
+			// data.append("clave", this.clave);
 
-			// let params = {
-			// 	usuario: this.usuario,
-			// 	clave: this.clave,
-			// };
+			let data = {
+				usuario: this.usuario,
+				clave: this.clave,
+			};
 
 			return axios
-				.post("/api/login/ingresar", data)
+				.get("/api/login/ingresar", { params: data })
 				.then(async (response) => {
-					self.$swal.fire({
-						text: response.data,
-						timer: 1200,
-						showConfirmButton: false,
-					});
+					console.log(response.data);
+					// self.$swal.fire({
+					// 	text: response.data,
+					// 	timer: 1200,
+					// 	showConfirmButton: false,
+					// });
 				})
 				.catch((error) => {
 					self.$swal.showValidationMessage(`Ha ocurrido un error.`);

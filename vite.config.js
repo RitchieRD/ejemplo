@@ -20,6 +20,7 @@ export default defineConfig({
             "~": path.resolve(__dirname, "node_modules"),
             find: "@vue/runtime-core",
             replacement: "@vue/runtime-core/dist/runtime-core.esm-bundler.js",
+            jquery: "jquery",
         },
     },
 });

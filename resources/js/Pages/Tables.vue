@@ -11,25 +11,10 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr>
-					<td>1</td>
-					<td>usuario 1</td>
-					<td>2024-06-26</td>
-				</tr>
-				<tr>
-					<td>2</td>
-					<td>usuario 2</td>
-					<td>2024-06-25</td>
-				</tr>
-				<tr>
-					<td>3</td>
-					<td>usuario 3</td>
-					<td>2024-06-24</td>
-				</tr>
-				<tr>
-					<td>4</td>
-					<td>usuario 4</td>
-					<td>2024-06-24</td>
+				<tr v-for="(item, index) in usuarios" :key="index">
+					<td>{{ index + 1 }}</td>
+					<td>{{ item.usuario }}</td>
+					<td>{{ item.fecha }}</td>
 				</tr>
 			</tbody>
 		</table>
@@ -67,31 +52,32 @@ import DataTable from "primevue/datatable/datatable.common";
 import Column from "primevue/column/column.common";
 
 export default {
+	props: { usuarios: Array },
 	components: { DataTable, Column },
 	data() {
 		return {
-			usuarios: [
-				{
-					id: 1,
-					usuario: "usuario 1",
-					fecha: "2024-06-26",
-				},
-				{
-					id: 2,
-					usuario: "usuario 2",
-					fecha: "2024-06-22",
-				},
-				{
-					id: 3,
-					usuario: "usuario 3",
-					fecha: "2024-06-24",
-				},
-				{
-					id: 4,
-					usuario: "usuario 4",
-					fecha: "2024-06-23",
-				},
-			],
+			// usuarios: [
+			// 	{
+			// 		id: 1,
+			// 		usuario: "usuario 1",
+			// 		fecha: "2024-06-26",
+			// 	},
+			// 	{
+			// 		id: 2,
+			// 		usuario: "usuario 2",
+			// 		fecha: "2024-06-22",
+			// 	},
+			// 	{
+			// 		id: 3,
+			// 		usuario: "usuario 3",
+			// 		fecha: "2024-06-24",
+			// 	},
+			// 	{
+			// 		id: 4,
+			// 		usuario: "usuario 4",
+			// 		fecha: "2024-06-23",
+			// 	},
+			// ],
 			usuarios_seleccionados: null,
 		};
 	},
@@ -132,12 +118,22 @@ export default {
 };
 </script>
 
-<style>
+<style lang="css">
 .color-blue {
 	color: blue;
 }
 
 .color-red {
+	color: red;
+}
+
+.p-datatable-thead th {
+	background-color: blue !important;
+	color: white !important;
+	text-transform: uppercase;
+}
+
+.p-datatable-thead th :hover {
 	color: red;
 }
 </style>

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
 use App\Http\Controllers\UsuarioController;
-
+use App\Http\Controllers\ComunicacionController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -26,3 +26,4 @@ Route::get('/', function () {
 
 Route::get('/login', [UsuarioController::class, 'login']);
 Route::get('/tables', [UsuarioController::class, 'tables']);
+Route::get('/padre', [ComunicacionController::class, 'padre']);

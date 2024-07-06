@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\UsuarioController;
+use App\Http\Controllers\ExportController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,3 +19,5 @@ use App\Http\Controllers\UsuarioController;
 
 Route::POST('/login/registrar', [UsuarioController::class, 'registrar']);
 Route::GET('/login/ingresar', [UsuarioController::class, 'ingresar']);
+
+Route::POST('/tables/export', [ExportController::class, 'export']);

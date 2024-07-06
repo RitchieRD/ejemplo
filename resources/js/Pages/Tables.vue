@@ -40,6 +40,16 @@
 			<Column field="usuario" header="Usuario" sortable></Column>
 			<Column field="fecha" header="Fecha" sortable></Column>
 		</DataTable>
+
+		<hr />
+
+		<div class="container">
+			<div class="row">
+				<div class="col-4 offset-4">
+					<button class="btn btn-success" @click="Exportar">EXPORTAR</button>
+				</div>
+			</div>
+		</div>
 	</div>
 </template>
 
@@ -114,6 +124,17 @@ export default {
 				},
 			});
 		});
+	},
+
+	methods: {
+		async Exportar() {
+			let data = new FormData();
+			data.append("usuarios", JSON.stringify(this.usuarios));
+
+			await axios.post("/api/tables/export", data).then(function (response) {
+				console.log(response.data);
+			});
+		},
 	},
 };
 </script>

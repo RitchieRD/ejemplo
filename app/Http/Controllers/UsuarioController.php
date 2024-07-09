@@ -61,7 +61,8 @@ class UsuarioController extends Controller
             'id',
             'usuario',
             'created_at as fecha'
-        )->get();
+        )
+            ->get();
 
 
         return Inertia::render('Tables', ['usuarios' => $usuarios]);

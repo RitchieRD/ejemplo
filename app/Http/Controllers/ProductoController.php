@@ -3,62 +3,44 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Inertia\Inertia;
+
+use App\Models\ProductoMarca;
+use App\Models\ProductoTipo;
+use App\Models\Producto;
 
 class ProductoController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function productos()
     {
-        //
+
+        $marcas = ProductoMarca::all();
+        $tipos = ProductoTipo::all();
+
+        return Inertia::render('Crud/Productos', ['marcas' => $marcas, 'tipos' => $tipos]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+    public function crear(Request $request)
     {
-        //
-    }
+        $frmProducto = json_decode($request->frmProducto);
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
+        $producto = $frmProducto->producto;
+        $marca_id = $frmProducto->marca_id;
+        $tipo_id = $frmProducto->tipo_id;
+        $precio = $frmProducto->precio;
+        $cantidad = $frmProducto->cantidad;
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
+        $producto_nuevo = Producto::create([
+            'producto' => $producto,
+            'marca_id' => $marca_id,
+            'tipo_id' => $tipo_id,
+            'precio' => $precio,
+            'cantidad' => $cantidad
+        ]);
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
+        return $producto_nuevo->id;
     }
 }

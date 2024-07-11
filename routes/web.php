@@ -5,6 +5,7 @@ use Inertia\Inertia;
 
 use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\ComunicacionController;
+use App\Http\Controllers\ProductoController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -27,3 +28,5 @@ Route::get('/', function () {
 Route::get('/login', [UsuarioController::class, 'login']);
 Route::get('/tables', [UsuarioController::class, 'tables']);
 Route::get('/padre', [ComunicacionController::class, 'padre']);
+
+Route::get('/productos', [ProductoController::class, 'productos']);
